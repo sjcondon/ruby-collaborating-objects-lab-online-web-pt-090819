@@ -6,10 +6,11 @@ class MP3Importer
   end
 
   def files
-    Dir[@path+"/*.mp3"].map { |file| file.split("/").last }
+    Dir.entries(path).select{|entries| entrie.include?(".mp3") }
+  #file || = Dir.glob("#{path}/*map{|f|f.gsub("#{path}/"," ")
   end
-
+  
   def import
-    files.each { |file| Song.new_by_filename(file) }
+    files.each { |file| Song.new_by_filename(file)}
   end
 end 
